@@ -19,11 +19,9 @@ public class WidgetRandom extends AppWidgetProvider {
 			int[] appWidgetIds) {
 
 		Log.w(LOG, "onUpdate method called");
-		
 		// Get all ids
 		ComponentName thisWidget = new ComponentName(context,
 				WidgetRandom.class);
-		
 		int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
 
 		// Build the intent to call the service

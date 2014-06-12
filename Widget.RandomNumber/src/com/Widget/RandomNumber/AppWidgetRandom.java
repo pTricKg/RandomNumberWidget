@@ -25,6 +25,7 @@ public class AppWidgetRandom extends AppWidgetProvider {
 	}
 	
 	public static class ToggleService extends IntentService {
+		
 		public ToggleService() {
 			super("AppWidgetRandom$ToggleService");
 		}
