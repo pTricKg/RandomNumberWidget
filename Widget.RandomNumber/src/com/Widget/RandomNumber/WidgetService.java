@@ -21,11 +21,11 @@ public class WidgetService extends Service {
 
 	@Override
 	public void onStart(Intent intent, int startId) {
+		
 		Log.i(LOG, "Called");
 		
 		// find edit text field for interaction
 		//userInput = (EditText) findViewById(R.id.userinp);
-
 		
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this
 				.getApplicationContext());
@@ -35,7 +35,9 @@ public class WidgetService extends Service {
 
 		ComponentName thisWidget = new ComponentName(getApplicationContext(),
 				WidgetRandom.class);
+		
 		int[] allWidgetIds2 = appWidgetManager.getAppWidgetIds(thisWidget);
+		
 		Log.w(LOG, "From Intent" + String.valueOf(allWidgetIds.length));
 		Log.w(LOG, "Direct" + String.valueOf(allWidgetIds2.length));
 
@@ -46,7 +48,9 @@ public class WidgetService extends Service {
 			RemoteViews remoteViews = new RemoteViews(this
 					.getApplicationContext().getPackageName(),
 					R.layout.widget_layout);
+			
 			Log.w("WidgetExample", String.valueOf(number));
+			
 			// Set the text
 			remoteViews.setTextViewText(R.id.update,
 					"Random # " + String.valueOf(number));

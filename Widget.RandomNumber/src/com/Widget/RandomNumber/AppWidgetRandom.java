@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 
 public class AppWidgetRandom extends AppWidgetProvider {
+	
 	public void onReceive(Context context, Intent intent) {
 		if (intent.getAction() == null) {
 			context.startService(new Intent(context, ToggleService.class));
