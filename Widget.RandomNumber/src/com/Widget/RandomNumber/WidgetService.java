@@ -24,7 +24,7 @@ public class WidgetService extends Service {
 		Log.i(LOG, "Called");
 		
 		// find edit text field for interaction
-		//EditText userInput = (EditText) findViewById(R.id.userinp);
+		userInput = (EditText) findViewById(R.id.userinp);
 
 		
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this
@@ -68,6 +68,10 @@ public class WidgetService extends Service {
 		stopSelf();
 
 		super.onStart(intent, startId);
+	}
+
+	private EditText findViewById(int userinp) {
+		return userInput;
 	}
 
 	@Override
