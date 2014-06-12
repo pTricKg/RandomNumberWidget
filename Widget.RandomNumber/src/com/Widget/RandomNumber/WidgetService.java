@@ -11,6 +11,13 @@ import android.os.IBinder;
 import android.util.Log;
 import android.widget.RemoteViews;
 
+/**
+ * Simple widget gives Random Number
+ * 
+ * @author Patrick Gorman
+ * @version Not Sure
+ */
+
 public class WidgetService extends Service {
 	
 	private static final String LOG = "com.Widget.RandomNumber";

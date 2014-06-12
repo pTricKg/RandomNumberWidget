@@ -9,6 +9,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+/**
+ * Simple widget gives Random Number
+ * 
+ * @author Patrick Gorman
+ * @version Not Sure
+ */
+
 
 public class WidgetRandom extends AppWidgetProvider {
 

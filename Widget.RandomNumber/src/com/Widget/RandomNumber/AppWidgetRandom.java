@@ -8,6 +8,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
+/**
+ * Simple widget gives Random Number
+ * 
+ * @author Patrick Gorman
+ * @version Not Sure
+ */
+
 public class AppWidgetRandom extends AppWidgetProvider {
 	
 	public void onReceive(Context context, Intent intent) {
