@@ -17,8 +17,7 @@ public class WidgetService extends Service {
 	@Override
 	public void onStart(Intent intent, int startId) {
 		Log.i(LOG, "Called");
-		// Create some random data
-
+		
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this
 				.getApplicationContext());
 
