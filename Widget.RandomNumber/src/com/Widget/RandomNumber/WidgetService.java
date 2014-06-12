@@ -9,14 +9,23 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.RemoteViews;
 
 public class WidgetService extends Service {
+	
 	private static final String LOG = "com.Widget.RandomNumber";
+	
+	// Create EditText
+	EditText userInput;
 
 	@Override
 	public void onStart(Intent intent, int startId) {
 		Log.i(LOG, "Called");
+		
+		// find edit text field for interaction
+		//EditText userInput = (EditText) findViewById(R.id.userinp);
+
 		
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this
 				.getApplicationContext());

@@ -3,5 +3,6 @@
     <string name="hello">Random Number?</string>
     <string name="app_name">Random Number?</string>
     <string name="number">Number</string>
+    <string name="input">Your range please!</string>
 
 </resources>
