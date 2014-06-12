@@ -53,7 +53,7 @@ public class WidgetService extends Service {
 			// Set the text
 			remoteViews.setTextViewText(R.id.update,
 					"Random # " + String.valueOf(number));
-
+			
 			// Register an onClickListener
 			Intent clickIntent = new Intent(this.getApplicationContext(),
 					WidgetRandom.class);
@@ -70,6 +70,7 @@ public class WidgetService extends Service {
 			
 			// The following will be for either new activity of
 			// changing values used for RandomNumber
+			
 			
 		}
 		stopSelf();
