@@ -9,7 +9,6 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.RemoteViews;
 
 public class WidgetService extends Service {
@@ -68,6 +67,10 @@ public class WidgetService extends Service {
 					PendingIntent.FLAG_UPDATE_CURRENT);
 			remoteViews.setOnClickPendingIntent(R.id.update, pendingIntent);
 			appWidgetManager.updateAppWidget(widgetId, remoteViews);
+			
+			// The following will be for either new activity of
+			// changing values used for RandomNumber
+			
 		}
 		stopSelf();
 
