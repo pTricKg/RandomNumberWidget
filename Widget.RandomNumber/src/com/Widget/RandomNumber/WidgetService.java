@@ -26,7 +26,7 @@ public class WidgetService extends Service {
 				.getIntArrayExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS);
 
 		ComponentName thisWidget = new ComponentName(getApplicationContext(),
-				WidgetQuestion.class);
+				WidgetRandom.class);
 		int[] allWidgetIds2 = appWidgetManager.getAppWidgetIds(thisWidget);
 		Log.w(LOG, "From Intent" + String.valueOf(allWidgetIds.length));
 		Log.w(LOG, "Direct" + String.valueOf(allWidgetIds2.length));
@@ -45,7 +45,7 @@ public class WidgetService extends Service {
 
 			// Register an onClickListener
 			Intent clickIntent = new Intent(this.getApplicationContext(),
-					WidgetQuestion.class);
+					WidgetRandom.class);
 
 			clickIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
 			clickIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS,

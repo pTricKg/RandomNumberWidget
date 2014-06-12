@@ -10,7 +10,7 @@ import android.content.Intent;
 import android.util.Log;
 
 
-public class WidgetQuestion extends AppWidgetProvider {
+public class WidgetRandom extends AppWidgetProvider {
 
 	private static final String LOG = "com.Widget.RandomNumber";
 
@@ -21,7 +21,7 @@ public class WidgetQuestion extends AppWidgetProvider {
 		Log.w(LOG, "onUpdate method called");
 		// Get all ids
 		ComponentName thisWidget = new ComponentName(context,
-				WidgetQuestion.class);
+				WidgetRandom.class);
 		int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
 
 		// Build the intent to call the service
