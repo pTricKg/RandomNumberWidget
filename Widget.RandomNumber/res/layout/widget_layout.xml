@@ -15,7 +15,8 @@
         android:layout_gravity="center"
         android:gravity="center_horizontal|center_vertical"
         android:layout_margin="4dip"
-        android:text="@string/number" >
+        android:text="@string/number"
+        android:paddingTop="15dip" >
     </TextView>
     
     

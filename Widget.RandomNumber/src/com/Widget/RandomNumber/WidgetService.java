@@ -17,14 +17,14 @@ public class WidgetService extends Service {
 	private static final String LOG = "com.Widget.RandomNumber";
 	
 	// Create EditText
-	EditText userInput;
+	//EditText userInput;
 
 	@Override
 	public void onStart(Intent intent, int startId) {
 		Log.i(LOG, "Called");
 		
 		// find edit text field for interaction
-		userInput = (EditText) findViewById(R.id.userinp);
+		//userInput = (EditText) findViewById(R.id.userinp);
 
 		
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this
@@ -70,9 +70,9 @@ public class WidgetService extends Service {
 		super.onStart(intent, startId);
 	}
 
-	private EditText findViewById(int userinp) {
-		return userInput;
-	}
+//	private EditText findViewById(int userinp) {
+//		return userInput;
+//	}
 
 	@Override
 	public IBinder onBind(Intent intent) {
