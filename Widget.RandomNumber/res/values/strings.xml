@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="hello">Random Number?</string>
     <string name="app_name">Random Number?</string>
     <string name="number">Number</string>
     <string name="input">Your range please!</string>
+    <string name="title_range">Random Range!</string>
+    <string name="range">Please set your range</string>
 
 </resources>
