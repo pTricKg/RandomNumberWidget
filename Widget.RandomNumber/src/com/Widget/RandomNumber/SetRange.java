@@ -15,7 +15,7 @@ public class SetRange extends Activity {
 		setContentView(R.layout.range);
 	}
 	
-	public void Range (View v) {
+	public void Range (Intent intent2) {
 	// find EditText
 			EditText setRange = (EditText) findViewById(R.id.editText);
 			
@@ -35,7 +35,7 @@ public class SetRange extends Activity {
 					
 					Intent intent = new Intent(SetRange.this, WidgetService.class);
 					intent.putExtra("range", mRange);
-					startService(intent);
+					Range(intent);
 					
 				}
 			}catch (NumberFormatException e) {

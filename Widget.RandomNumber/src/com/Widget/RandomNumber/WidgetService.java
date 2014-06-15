@@ -49,7 +49,8 @@ public class WidgetService extends Service {
 
 		for (int widgetId : allWidgetIds) {
 			// Create some random data
-			int number = (new Random().intent(gRange);
+			int number = (new Random().nextInt(200));
+
 			RemoteViews remoteViews = new RemoteViews(this
 					.getApplicationContext().getPackageName(),
 					R.layout.widget_layout);
