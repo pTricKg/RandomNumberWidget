@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.RemoteViews;
+import android.widget.Toast;
 
 /**
  * Simple widget gives Random Number
@@ -84,7 +85,7 @@ public class WidgetService extends Service {
 
 		super.onStart(intent, startId);
 	}
-
+	
 //	private EditText findViewById(int userinp) {
 //		return userInput;
 //	}
