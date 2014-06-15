@@ -15,7 +15,7 @@ public class SetRange extends Activity {
 		setContentView(R.layout.range);
 	}
 	
-	public void Range (Intent intent2) {
+	public void Range (View v) {
 	// find EditText
 			EditText setRange = (EditText) findViewById(R.id.editText);
 			
