@@ -1,7 +1,6 @@
 package com.Widget.RandomNumber;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -29,13 +28,9 @@ public class SetRange extends Activity {
 				}
 				else {
 					Toast.makeText(getApplicationContext(),
-							"Your chose range from 1 to %d", Toast.LENGTH_SHORT).show();
+							("Your chose range from 1 to " + checkInput), Toast.LENGTH_SHORT).show();
 					// Get range from edit text then make string then parse into long
 					long mRange = Long.parseLong(setRange.getText().toString());
-					
-					Intent intent = new Intent(SetRange.this, WidgetService.class);
-					intent.putExtra("range", mRange);
-					Range(intent);
 					
 				}
 			}catch (NumberFormatException e) {
