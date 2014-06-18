@@ -75,19 +75,11 @@ public class WidgetService extends Service {
 			remoteViews.setOnClickPendingIntent(R.id.update, pendingIntent);
 			appWidgetManager.updateAppWidget(widgetId, remoteViews);
 			
-			// The following will be for either new activity of
-			// changing values used for RandomNumber
-			
-			
 		}
 		stopSelf();
 
-		super.onStart(intent, startId);
 	}
 	
-//	private EditText findViewById(int userinp) {
-//		return userInput;
-//	}
 
 	@Override
 	public IBinder onBind(Intent intent) {
