@@ -9,7 +9,6 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
@@ -50,7 +49,7 @@ public class WidgetService extends Service {
 						
 			// Create some random data
 			int number = (new Random().nextInt(100));
-
+			
 			RemoteViews remoteViews = new RemoteViews(this
 					.getApplicationContext().getPackageName(),
 					R.layout.widget_layout);
@@ -74,13 +73,12 @@ public class WidgetService extends Service {
 					PendingIntent.FLAG_UPDATE_CURRENT);
 			remoteViews.setOnClickPendingIntent(R.id.update, pendingIntent);
 			appWidgetManager.updateAppWidget(widgetId, remoteViews);
-			
+						
 		}
 		stopSelf();
 
 	}
 	
-
 	@Override
 	public IBinder onBind(Intent intent) {
 		return null;
@@ -100,8 +98,7 @@ public class WidgetService extends Service {
 				String message = data.getStringExtra("key");
 				Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 				
-				
-			}
+				}
 
 		}
 }
