@@ -1,8 +1,11 @@
 package com.Widget.RandomNumber;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -43,35 +46,32 @@ public class SetRange extends Activity {
 				Toast.makeText(getApplicationContext(),
 						"Please enter only one integer", Toast.LENGTH_SHORT).show();
 			}
-//			// Declare and setup "Enter" button
-//			Button enterButton = (Button) findViewById(R.id.setR);
-//			enterButton.setOnClickListener(new OnClickListener() {
-//
-//				// Call enterClicked() when pressed
-//
-//				public void onClick(View v) {
-//
-//					enterClicked();
-//
-//				}
-//			});
-//	}
-//			
-//			// Sets result to send back to calling Activity and finishes
-//
-//			private void enterClicked() {
-//
-//
-//				Intent editIntent = new Intent();
-//				
-//				editIntent.putExtra("key", setRange.getText().toString());
-//
-//				// TODO - Set Activity's result with result code RESULT_OK
-//				setResult(RESULT_OK, editIntent);
-//
-//				// TODO - Finish the Activity
-//				finish();
-//
+			// Declare and setup "Enter" button
+			Button enterButton = (Button) findViewById(R.id.setR);
+			enterButton.setOnClickListener(new OnClickListener() {
+
+				// Call enterClicked() when pressed
+
+				public void onClick(View v) {
+
+					sendToWidget();
+
+				}
+			});
+	}
+			
+			// Sets result to send back to calling Activity and finishes
+
+			private void sendToWidget() {
+				
+				Toast.makeText(getApplicationContext(), "This is sendToWidget", Toast.LENGTH_LONG).show();
+
+
+				Intent editIntent = new Intent();
+				
+				editIntent.putExtra("key", setRange.getText().toString());
+				setResult(RESULT_OK, editIntent);
+				finish();
 			}
 
 }
