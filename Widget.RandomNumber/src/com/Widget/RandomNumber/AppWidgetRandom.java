@@ -8,7 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
-/**
+/*
  * Simple widget gives Random Number
  * 
  * @author Patrick Gorman
