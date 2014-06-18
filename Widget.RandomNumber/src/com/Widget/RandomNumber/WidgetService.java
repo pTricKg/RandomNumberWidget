@@ -26,6 +26,10 @@ public class WidgetService extends Service {
 	private static final int RESULT_OK = 0;
 	private static final String TAG = null;
 	
+	
+	// Create some random data
+	int number = (new Random().nextInt());
+	
 	@Override
 	public void onStart(Intent intent, int startId) {
 		
@@ -48,7 +52,7 @@ public class WidgetService extends Service {
 		for (int widgetId : allWidgetIds) {
 						
 			// Create some random data
-			int number = (new Random().nextInt(100));
+			//int number = (new Random().nextInt(100));
 			
 			RemoteViews remoteViews = new RemoteViews(this
 					.getApplicationContext().getPackageName(),
@@ -98,6 +102,9 @@ public class WidgetService extends Service {
 				String message = data.getStringExtra("key");
 				Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 				
+				int i = Integer.parseInt(message);	
+				number = i;
+												
 				}
 
 		}
