@@ -9,7 +9,9 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.RemoteViews;
+import android.widget.Toast;
 
 /**
  * Simple widget gives Random Number
@@ -21,18 +23,15 @@ import android.widget.RemoteViews;
 public class WidgetService extends Service {
 	
 	private static final String LOG = "com.Widget.RandomNumber";
+	static private final int GET_TEXT_REQUEST_CODE = 1;
+	private static final int RESULT_OK = 0;
+	private static final String TAG = null;
 	
-	// Create EditText
-	//EditText userInput;
-
 	@Override
 	public void onStart(Intent intent, int startId) {
 		
 		Log.i(LOG, "Called");
 		
-		// find edit text field for interaction
-		//userInput = (EditText) findViewById(R.id.userinp);
-
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this
 				.getApplicationContext());
 
@@ -48,8 +47,9 @@ public class WidgetService extends Service {
 		Log.w(LOG, "Direct" + String.valueOf(allWidgetIds2.length));
 
 		for (int widgetId : allWidgetIds) {
+						
 			// Create some random data
-			int number = (new Random().nextInt(200));
+			int number = (new Random().nextInt(100));
 
 			RemoteViews remoteViews = new RemoteViews(this
 					.getApplicationContext().getPackageName(),
@@ -93,4 +93,24 @@ public class WidgetService extends Service {
 	public IBinder onBind(Intent intent) {
 		return null;
 	}
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+		Log.i(TAG, "Entered onActivityResult()");
+
+		// TODO - Process the result only if this method received both a
+		// RESULT_OK result code and a recognized request code
+		// If so, update the Textview showing the user-entered text.
+		if (requestCode == GET_TEXT_REQUEST_CODE) {
+			if (resultCode == RESULT_OK) { 
+				
+				// Instead of creating new intent, I used Intent data and it now works.
+				// Getting data from edittext input from other activity
+				String message = data.getStringExtra("key");
+				Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+				
+				
+			}
+
+		}
+}
 }
