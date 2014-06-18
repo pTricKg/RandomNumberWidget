@@ -12,7 +12,7 @@ import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
-/**
+/*
  * Simple widget gives Random Number
  * 
  * @author Patrick Gorman
@@ -101,9 +101,9 @@ public class WidgetService extends Service {
 				// Getting data from edittext input from other activity
 				String message = data.getStringExtra("key");
 				Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-				
+								
 				int i = Integer.parseInt(message);	
-				number = i;
+				
 												
 				}
 
