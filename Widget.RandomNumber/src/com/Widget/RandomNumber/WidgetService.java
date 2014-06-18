@@ -52,7 +52,7 @@ public class WidgetService extends Service {
 		for (int widgetId : allWidgetIds) {
 						
 			// Create some random data
-			//int number = (new Random().nextInt(100));
+			int number = (new Random().nextInt(100));
 			
 			RemoteViews remoteViews = new RemoteViews(this
 					.getApplicationContext().getPackageName(),
@@ -91,14 +91,9 @@ public class WidgetService extends Service {
 
 		Log.i(TAG, "Entered onActivityResult()");
 
-		// TODO - Process the result only if this method received both a
-		// RESULT_OK result code and a recognized request code
-		// If so, update the Textview showing the user-entered text.
 		if (requestCode == GET_TEXT_REQUEST_CODE) {
 			if (resultCode == RESULT_OK) { 
 				
-				// Instead of creating new intent, I used Intent data and it now works.
-				// Getting data from edittext input from other activity
 				String message = data.getStringExtra("key");
 				Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 								
