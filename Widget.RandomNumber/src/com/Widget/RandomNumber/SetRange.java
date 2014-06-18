@@ -3,6 +3,7 @@ package com.Widget.RandomNumber;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -64,8 +65,10 @@ public class SetRange extends Activity {
 
 			private void sendToWidget() {
 				
-				Toast.makeText(getApplicationContext(), "This is sendToWidget", Toast.LENGTH_LONG).show();
-
+				Toast toast = Toast.makeText(getApplicationContext(),
+						"This is sendToWidget", Toast.LENGTH_LONG);
+				toast.setGravity(Gravity.TOP, 25, 400);
+				toast.show();
 
 				Intent editIntent = new Intent();
 				
@@ -73,5 +76,6 @@ public class SetRange extends Activity {
 				setResult(RESULT_OK, editIntent);
 				finish();
 			}
+			
 
 }
