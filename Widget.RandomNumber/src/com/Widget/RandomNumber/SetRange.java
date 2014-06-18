@@ -10,6 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/*
+ * Simple widget gives Random Number
+ * 
+ * @author Patrick Gorman
+ * @version Not Sure
+ */
+
 public class SetRange extends Activity {
 	
 	EditText setRange;
