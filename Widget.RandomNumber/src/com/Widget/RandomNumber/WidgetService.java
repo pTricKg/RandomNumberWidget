@@ -25,10 +25,11 @@ public class WidgetService extends Service {
 	static private final int GET_TEXT_REQUEST_CODE = 1;
 	private static final int RESULT_OK = 0;
 	private static final String TAG = null;
+	private static final int i = 0;
 	
 	
 	// Create some random data
-	int number = (new Random().nextInt());
+	//int number = (new Random().nextInt());
 	
 	@Override
 	public void onStart(Intent intent, int startId) {
@@ -83,6 +84,13 @@ public class WidgetService extends Service {
 
 	}
 	
+	
+	private int SetRange(int i) {
+		// TODO Auto-generated method stub
+		return i;
+	}
+
+
 	@Override
 	public IBinder onBind(Intent intent) {
 		return null;
