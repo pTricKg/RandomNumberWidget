@@ -22,12 +22,7 @@ import android.widget.Toast;
 public class WidgetService extends Service {
 	
 	private static final String LOG = "com.Widget.RandomNumber";
-	static private final int GET_TEXT_REQUEST_CODE = 1;
-	private static final int RESULT_OK = 0;
-	private static final String TAG = null;
-	private static final int i = 0;
-	
-	
+		
 	// Create some random data
 	//int number = (new Random().nextInt());
 	
@@ -84,32 +79,25 @@ public class WidgetService extends Service {
 
 	}
 	
-	
-	private int SetRange(int i) {
-		// TODO Auto-generated method stub
-		return i;
-	}
-
-
 	@Override
 	public IBinder onBind(Intent intent) {
 		return null;
 	}
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-		Log.i(TAG, "Entered onActivityResult()");
-
-		if (requestCode == GET_TEXT_REQUEST_CODE) {
-			if (resultCode == RESULT_OK) { 
-				
-				String message = data.getStringExtra("key");
-				Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-								
-				int i = Integer.parseInt(message);	
-				
-												
-				}
-
-		}
-}
+//	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//
+//		Log.i(TAG, "Entered onActivityResult()");
+//
+//		if (requestCode == GET_TEXT_REQUEST_CODE) {
+//			if (resultCode == RESULT_OK) { 
+//				
+//				String message = data.getStringExtra("key");
+//				Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+//								
+//				int i = Integer.parseInt(message);	
+//				
+//												
+//				}
+//
+//		}
+//}
 }
