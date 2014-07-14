@@ -22,17 +22,9 @@ import android.widget.Toast;
 public class WidgetService extends Service {
 	
 	private static final String LOG = "com.Widget.RandomNumber";
-<<<<<<< HEAD
-	static private final int GET_TEXT_REQUEST_CODE = 1;
-	private static final int RESULT_OK = 0;
-	private static final String TAG = null;
-	
-	private Integer getParsedInt;
-=======
 		
 	// Create some random data
 	//int number = (new Random().nextInt());
->>>>>>> 757adf7381bbd20adc2a639cb5d4f762ed7689ab
 	
 	@Override
 	public void onStart(Intent intent, int startId) {
@@ -57,7 +49,6 @@ public class WidgetService extends Service {
 						
 			// Create some random data
 			int number = (new Random().nextInt(100));
-			getParsedInt(i);
 			
 			RemoteViews remoteViews = new RemoteViews(this
 					.getApplicationContext().getPackageName(),
@@ -92,45 +83,6 @@ public class WidgetService extends Service {
 	public IBinder onBind(Intent intent) {
 		return null;
 	}
-<<<<<<< HEAD
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-		Log.i(TAG, "Entered onActivityResult()");
-
-		if (requestCode == GET_TEXT_REQUEST_CODE) {
-			if (resultCode == RESULT_OK) { 
-				
-				String message = data.getStringExtra("key");
-				Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-				
-								
-//				Integer calculatedStuff;
-//
-//			    public void calculateStuff() {
-//			        //Define a variable to return
-//			        Integer result;
-//
-//			        //Do calculate stuff...
-//			        result = (4+4) / 2;
-//
-//			        //Return the result to the caller
-//			        this.calculatedStuff = result;
-//			    }
-//
-//				
-												
-				}
-			
-
-		}
-		
-}
-	public static void getParsedInt(int param) {
-		
-		int i = Integer.parseInt(message);
-	
-	}
-=======
 //	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //
 //		Log.i(TAG, "Entered onActivityResult()");
@@ -148,5 +100,4 @@ public class WidgetService extends Service {
 //
 //		}
 //}
->>>>>>> 757adf7381bbd20adc2a639cb5d4f762ed7689ab
 }
