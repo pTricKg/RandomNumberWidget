@@ -15,6 +15,7 @@ import android.widget.Toast;
  * 
  * @author Patrick Gorman
  * @version Not Sure
+* Not even sure what is going on here.
  */
 
 public class SetRange extends Activity {
