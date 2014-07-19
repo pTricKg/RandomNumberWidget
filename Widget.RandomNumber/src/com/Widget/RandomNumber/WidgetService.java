@@ -24,6 +24,7 @@ public class WidgetService extends Service {
 	
 	private static final String LOG = "com.Widget.RandomNumber";
 <<<<<<< HEAD
+<<<<<<< HEAD
 	static private final int GET_TEXT_REQUEST_CODE = 1;
 	private static final int RESULT_OK = 0;
 	private static final String TAG = null;
@@ -34,6 +35,11 @@ public class WidgetService extends Service {
 	// Create some random data
 	//int number = (new Random().nextInt());
 >>>>>>> 757adf7381bbd20adc2a639cb5d4f762ed7689ab
+=======
+		
+	// Create some random data
+	//int number = (new Random().nextInt());
+>>>>>>> 5c635136f8e489cab1f8b6fa07eda93778bb3c1e
 	
 	@Override
 	public void onStart(Intent intent, int startId) {
@@ -58,7 +64,6 @@ public class WidgetService extends Service {
 						
 			// Create some random data
 			int number = (new Random().nextInt(100));
-			getParsedInt(i);
 			
 			RemoteViews remoteViews = new RemoteViews(this
 					.getApplicationContext().getPackageName(),
@@ -93,6 +98,7 @@ public class WidgetService extends Service {
 	public IBinder onBind(Intent intent) {
 		return null;
 	}
+<<<<<<< HEAD
 <<<<<<< HEAD
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -132,6 +138,8 @@ public class WidgetService extends Service {
 	
 	}
 =======
+=======
+>>>>>>> 5c635136f8e489cab1f8b6fa07eda93778bb3c1e
 //	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //
 //		Log.i(TAG, "Entered onActivityResult()");
@@ -149,5 +157,9 @@ public class WidgetService extends Service {
 //
 //		}
 //}
+<<<<<<< HEAD
 >>>>>>> 757adf7381bbd20adc2a639cb5d4f762ed7689ab
 }
+=======
+}
+>>>>>>> 5c635136f8e489cab1f8b6fa07eda93778bb3c1e
