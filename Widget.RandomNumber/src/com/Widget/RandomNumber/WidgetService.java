@@ -17,6 +17,7 @@ import android.widget.Toast;
  * 
  * @author Patrick Gorman
  * @version Not Sure
+* Needs work!!
  */
 
 public class WidgetService extends Service {
