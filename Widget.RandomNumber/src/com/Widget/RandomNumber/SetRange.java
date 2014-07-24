@@ -79,10 +79,14 @@ public class SetRange extends Activity {
 				toast.show();
 
 				Intent editIntent = new Intent();
-				
-				editIntent.putExtra("key", setRange.getText().toString());
+				String name = "input";
+				int value = setRange.getId();
+				editIntent.putExtra(name, value);
 				setResult(RESULT_OK, editIntent);
-				finish();
+				
+//				editIntent.putExtra("key", setRange.getText().toString());
+//				setResult(RESULT_OK, editIntent);
+//				finish();
 			}
 			
 
