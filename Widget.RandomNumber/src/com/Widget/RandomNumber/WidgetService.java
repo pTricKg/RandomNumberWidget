@@ -28,7 +28,6 @@ public class WidgetService extends Service {
 	private static final int RESULT_OK = 0;
 	private static final String TAG = null;
 	
-	private Integer getParsedInt;
 
 	// Create some random data
 	//int number = (new Random().nextInt());
