@@ -103,22 +103,7 @@ public class WidgetService extends Service {
 				
 				String message = data.getStringExtra("key");
 				Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-				
-								
-//				Integer calculatedStuff;
-//
-//			    public void calculateStuff() {
-//			        //Define a variable to return
-//			        Integer result;
-//
-//			        //Do calculate stuff...
-//			        result = (4+4) / 2;
-//
-//			        //Return the result to the caller
-//			        this.calculatedStuff = result;
-//			    }
-//
-//				
+
 												
 				}
 			
