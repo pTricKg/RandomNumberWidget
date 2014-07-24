@@ -1,7 +1,6 @@
 package com.Widget.RandomNumber;
 
 import java.util.Random;
-import java.util.jar.Attributes.Name;
 
 import android.app.PendingIntent;
 import android.app.Service;
@@ -10,7 +9,6 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.RemoteViews;
 
 /*
@@ -25,15 +23,6 @@ public class WidgetService extends Service {
 
 	private static final String LOG = "com.Widget.RandomNumber";
 
-	private static final int REQUEST_CODE = 1;
-
-	private static final int RESULT_OK = 0;
-	private int id;
-	private EditText et;
-	private Intent i;
-
-	// Create some random data
-	// int number = (new Random().nextInt());
 
 	@Override
 	public void onStart(Intent intent, int startId) {
@@ -55,14 +44,9 @@ public class WidgetService extends Service {
 		Log.w(LOG, "Direct" + String.valueOf(allWidgetIds2.length));
 
 		for (int widgetId : allWidgetIds) {
-
-			// testing
-			i = new Intent(this, SetRange.class);
-			// startActivityForResult(, REQUEST_CODE);
-			et = (EditText) findViewById(id);
-
+			
 			// Create some random data
-			int number = (new Random().nextInt(et));
+			int number = (new Random().nextInt(100));
 
 			RemoteViews remoteViews = new RemoteViews(this
 					.getApplicationContext().getPackageName(),
@@ -93,24 +77,11 @@ public class WidgetService extends Service {
 
 	}
 
-	private EditText findViewById(int id2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	@Override
 	public IBinder onBind(Intent intent) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
-			if (data.hasExtra("textView")) {
-				// Get the selected file.
-				id = data.getExtras().getInt("textView");
-			}
-		}
-	}
 
 }
