@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.RemoteViews;
-import android.widget.Toast;
 
 /*
  * Simple widget gives Random Number
@@ -23,14 +22,6 @@ import android.widget.Toast;
 public class WidgetService extends Service {
 	
 	private static final String LOG = "com.Widget.RandomNumber";
-
-	static private final int GET_TEXT_REQUEST_CODE = 1;
-	private static final int RESULT_OK = 0;
-	private static final String TAG = null;
-	
-
-	// Create some random data
-	//int number = (new Random().nextInt());
 
 	// Create some random data
 	//int number = (new Random().nextInt());
@@ -87,30 +78,17 @@ public class WidgetService extends Service {
 		stopSelf();
 
 	}
-	
+
+
 	@Override
 	public IBinder onBind(Intent intent) {
+		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
 
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-		Log.i(TAG, "Entered onActivityResult()");
-
-		if (requestCode == GET_TEXT_REQUEST_CODE) {
-			if (resultCode == RESULT_OK) { 
-				
-				String message = data.getStringExtra("key");
-				Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-
-												
-				}
-			
-
-		}
-		
-}
-
+	
 }
 
 
