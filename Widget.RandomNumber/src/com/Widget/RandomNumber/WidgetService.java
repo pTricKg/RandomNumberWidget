@@ -54,6 +54,7 @@ public class WidgetService extends Service {
 			EditText txt = (EditText) findViewById(editText);
 
 			// Create some random data
+			// need to get this from edittext
 			int number = (new Random().nextInt(txt));
 
 			RemoteViews remoteViews = new RemoteViews(this
