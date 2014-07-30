@@ -15,7 +15,8 @@ import android.widget.Toast;
  * 
  * @author Patrick Gorman
  * @version Not Sure
-* Not even sure what is going on here.
+* Not even sure what is going on here. This is
+* working.
  */
 
 public class SetRange extends Activity {
@@ -79,12 +80,12 @@ public class SetRange extends Activity {
 				toast.show();
 
 				Intent editIntent = new Intent();
-				String name = "input";
-				int value = setRange.getId();
-				editIntent.putExtra(name, value);
-				setResult(RESULT_OK, editIntent);
+//				String name = "input";
+//				int value = setRange.getId();
+//				editIntent.putExtra(name, value);
+//				setResult(RESULT_OK, editIntent);
 				
-//				editIntent.putExtra("key", setRange.getText().toString());
+				editIntent.putExtra("key", setRange.getText().toString());
 //				setResult(RESULT_OK, editIntent);
 //				finish();
 			}

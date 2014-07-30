@@ -9,6 +9,7 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.RemoteViews;
 
 /*
@@ -22,12 +23,16 @@ import android.widget.RemoteViews;
 public class WidgetService extends Service {
 
 	private static final String LOG = "com.Widget.RandomNumber";
+	
+	private static final int REQUEST_CODE=1;
 
+	private static final int editText;
 
 	@Override
 	public void onStart(Intent intent, int startId) {
 
 		Log.i(LOG, "Called");
+		
 
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this
 				.getApplicationContext());
@@ -44,9 +49,12 @@ public class WidgetService extends Service {
 		Log.w(LOG, "Direct" + String.valueOf(allWidgetIds2.length));
 
 		for (int widgetId : allWidgetIds) {
+
 			
+			EditText txt = (EditText) findViewById(editText);
+
 			// Create some random data
-			int number = (new Random().nextInt(100));
+			int number = (new Random().nextInt(txt));
 
 			RemoteViews remoteViews = new RemoteViews(this
 					.getApplicationContext().getPackageName(),
@@ -77,11 +85,15 @@ public class WidgetService extends Service {
 
 	}
 
+	private int findViewById(int editText) {
+		// TODO Auto-generated method stub
+		return editText;
+	}
+
 	@Override
 	public IBinder onBind(Intent intent) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 }
