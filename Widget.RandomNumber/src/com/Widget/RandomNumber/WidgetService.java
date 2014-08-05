@@ -9,7 +9,6 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.RemoteViews;
 
 /*
@@ -24,9 +23,6 @@ public class WidgetService extends Service {
 
 	private static final String LOG = "com.Widget.RandomNumber";
 	
-	private static final int REQUEST_CODE=1;
-
-	private static final int editText;
 
 	@Override
 	public void onStart(Intent intent, int startId) {
@@ -51,11 +47,9 @@ public class WidgetService extends Service {
 		for (int widgetId : allWidgetIds) {
 
 			
-			EditText txt = (EditText) findViewById(editText);
-
 			// Create some random data
 			// need to get this from edittext
-			int number = (new Random().nextInt(txt));
+			int number = (new Random().nextInt(100));
 
 			RemoteViews remoteViews = new RemoteViews(this
 					.getApplicationContext().getPackageName(),
@@ -84,11 +78,6 @@ public class WidgetService extends Service {
 		}
 		stopSelf();
 
-	}
-
-	private int findViewById(int editText) {
-		// TODO Auto-generated method stub
-		return editText;
 	}
 
 	@Override
