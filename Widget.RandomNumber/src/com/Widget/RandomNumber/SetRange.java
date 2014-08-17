@@ -2,6 +2,7 @@ package com.Widget.RandomNumber;
 
 import android.app.Activity;
 import android.appwidget.AppWidgetManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RemoteViews;
 import android.widget.Toast;
 
 /*
@@ -21,7 +23,9 @@ import android.widget.Toast;
 
 public class SetRange extends Activity {
 
+	private static final Context context = null;
 	EditText setRange;
+	private int mAppWidgetId;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,7 @@ public class SetRange extends Activity {
 		setRange = (EditText) findViewById(R.id.editText);
 
 		// Creating string for empty edit text check
-
+		
 		try {
 			// checking input
 			final String checkInput = setRange.getText().toString();
@@ -76,7 +80,8 @@ public class SetRange extends Activity {
 
 			}
 		});
-	}
+		
+	}	
 
 	// Sets result to send back to calling Activity and finishes
 
@@ -86,15 +91,47 @@ public class SetRange extends Activity {
 				"This is sendToWidget", Toast.LENGTH_LONG);
 		toast.setGravity(Gravity.TOP, 25, 400);
 		toast.show();
-
-		Intent editIntent = new Intent(SetRange.this, WidgetService.class);
-
-		editIntent.putExtra("key", setRange.getText().toString());//
-		sendBroadcast(editIntent);
+		
+		Intent editIntent = new Intent();
+		
+		editIntent.putExtra("key",setRange.getText().toString());//
+		setResult(RESULT_OK, editIntent);
+//		sendBroadcast(editIntent);
+		//setResult("key", editIntent);
 		// startActivity(editIntent);
 		System.out.println("key");
-
+		
 		finish();
+		// following dev guide, not sure why it won't play nice
+//		Intent intent = getIntent();
+//		Bundle extras = intent.getExtras();
+//		if (extras != null) {
+//		    mAppWidgetId = extras.getInt(
+//		            AppWidgetManager.EXTRA_APPWIDGET_ID, 
+//		            AppWidgetManager.INVALID_APPWIDGET_ID);
+//		  
+//		    AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+//			
+//			RemoteViews views = new RemoteViews(context.getPackageName(),
+//					R.layout.widget_layout);
+//					appWidgetManager.updateAppWidget(mAppWidgetId, views);
+//					
+//					Intent resultValue = new Intent();
+//			        resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mAppWidgetId);
+//					setResult(RESULT_OK, resultValue);
+//					finish();
+		    
+		}
+		
+//		Intent editIntent = new Intent(this, WidgetRandom.class);
+//
+//		editIntent.putExtra("key",setRange.getText().toString());//
+//		setResult(RESULT_OK, editIntent);
+//		sendBroadcast(editIntent);
+//		//setResult("key", editIntent);
+//		// startActivity(editIntent);
+//		System.out.println("key");
+		
 	}
+	
 
-}

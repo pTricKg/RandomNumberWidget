@@ -1,11 +1,13 @@
 package com.Widget.RandomNumber;
 
 import android.app.IntentService;
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.widget.EditText;
 import android.widget.RemoteViews;
 
 /*
@@ -48,6 +50,17 @@ public class AppWidgetRandom extends AppWidgetProvider {
 		private RemoteViews buildUpdate(Context context) {
 			RemoteViews updateViews = new
 			RemoteViews(context.getPackageName(),R.layout.widget);
+			
+//			Intent i = new Intent(context, AppWidgetRandom.class);
+//			
+//			i.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+//		    i.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
+//		    
+//		    PendingIntent pi=PendingIntent.getBroadcast(context, 0 , i,
+//                    PendingIntent.FLAG_UPDATE_CURRENT);
+//		    
+//		    updateViews.setOnClickPendingIntent(R.id.setR, pi);
+						
 			return updateViews;
 }
 	}

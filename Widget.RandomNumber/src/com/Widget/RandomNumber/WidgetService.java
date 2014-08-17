@@ -1,6 +1,7 @@
 package com.Widget.RandomNumber;
 
 import java.util.Random;
+
 import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -28,7 +29,8 @@ public class WidgetService extends Service {
 	private static final String TAG = null;
 	private static final int default_key = 100;
 	private static final int RESULT_OK = 1;
-	private static final int GET_TEXT_REQUEST_CODE = 0;
+	private static final int GET_TEXT_REQUEST_CODE = 1;
+	
 	TextView mUserTextView;
 
 	// Create some random data
@@ -37,7 +39,7 @@ public class WidgetService extends Service {
 	@Override
 	public void onStart(Intent intent, int startId) {
 		
-		Log.i(LOG, "Called");
+		Log.i(LOG, "Called onStart");
 		
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this
 				.getApplicationContext());
@@ -54,15 +56,18 @@ public class WidgetService extends Service {
 		Log.w(LOG, "Direct" + String.valueOf(allWidgetIds2.length));
 
 		for (int widgetId : allWidgetIds) {
-						
-			// Create some random data
-			Intent i = new Intent();
 			
-			int message = i.getIntExtra("key", 100);
-			System.out.println(message);
-			//int num = Integer.parseInt(message);
-		    //int number = (new Random().nextInt(num));
-			int number = (new Random().nextInt(message));;
+			
+						
+		//	 create some random data
+		Intent i = new Intent(this, SetRange.class);
+			
+
+		int message = i.getIntExtra("key", 100);
+
+	    int number = (new Random().nextInt(message));
+
+			
 			
 			RemoteViews remoteViews = new RemoteViews(this
 					.getApplicationContext().getPackageName(),
@@ -90,7 +95,7 @@ public class WidgetService extends Service {
 						
 		}
 		stopSelf();
-
+		
 	}
 
 
@@ -121,13 +126,17 @@ public class WidgetService extends Service {
 				// Getting data from edittext input from other activity
 				String message = data.getStringExtra("key");
 				mUserTextView.setText(message);
+				
+				System.out.println(mUserTextView);
+				
 
 			}
 
 		}
+		onActivityResult(requestCode, resultCode, data);
 	}
 
-
+	
 	public static int getDefaultKey() {
 		return default_key;
 	}
