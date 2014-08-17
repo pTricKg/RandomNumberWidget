@@ -27,6 +27,7 @@
             android:icon="@drawable/ic_launcher" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                
             </intent-filter>
 
             <meta-data
