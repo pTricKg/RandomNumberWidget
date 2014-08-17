@@ -22,17 +22,12 @@ import android.widget.Toast;
 public class SetRange extends Activity {
 
 	EditText setRange;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.range);
 
-		// Intent firstIntent =
-		// startActivityForResult(firstIntent, GET_TEXT_REQUEST_CODE);
-	}
-
-	public void Range(View v) {
 		// find EditText
 		setRange = (EditText) findViewById(R.id.editText);
 
@@ -49,6 +44,7 @@ public class SetRange extends Activity {
 				Toast.makeText(getApplicationContext(),
 						("Your chose range from 1 to " + checkInput),
 						Toast.LENGTH_SHORT).show();
+				// sendToWidget(chekInput);
 				// Get range from edit text then make string then parse into
 				// long
 				@SuppressWarnings("unused")
@@ -93,8 +89,9 @@ public class SetRange extends Activity {
 
 		Intent editIntent = new Intent(SetRange.this, WidgetService.class);
 
-		editIntent.putExtra("key", setRange.getText().toString());// 
+		editIntent.putExtra("key", setRange.getText().toString());//
 		sendBroadcast(editIntent);
+		// startActivity(editIntent);
 		System.out.println("key");
 
 		finish();
