@@ -4,6 +4,7 @@
     android:minHeight="72dp"
     android:minWidth="146dp"
     android:updatePeriodMillis="200000"
-    android:resizeMode="horizontal|vertical"  >
+    android:resizeMode="horizontal|vertical" 
+    android:configure="com.Widget.RandomNumber.SetRange" >
 
 </appwidget-provider>
