@@ -19,28 +19,33 @@ import android.widget.TextView;
  * 
  * @author Patrick Gorman
  * @version Not Sure
-* Needs work!!
+ * Needs work!!
  */
 
 @SuppressLint("NewApi")
 public class WidgetService extends Service {
-	
+
 	private static final String LOG = "com.Widget.RandomNumber";
 	private static final String TAG = null;
 	private static final int default_key = 100;
 	private static final int RESULT_OK = 1;
 	private static final int GET_TEXT_REQUEST_CODE = 1;
-	
+	private static final String requestCode = null;
+	private static final String resultCode = null;
+	private static final String data = null;
+
 	TextView mUserTextView;
+	String message;
 
 	// Create some random data
-	//int number = (new Random().nextInt());
+	// int number = (new Random().nextInt());
 
 	@Override
 	public void onStart(Intent intent, int startId) {
-		
+
 		Log.i(LOG, "Called onStart");
-		
+		startActivityResult(requestCode, resultCode, data);
+
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this
 				.getApplicationContext());
 
@@ -49,36 +54,31 @@ public class WidgetService extends Service {
 
 		ComponentName thisWidget = new ComponentName(getApplicationContext(),
 				WidgetRandom.class);
-		
+
 		int[] allWidgetIds2 = appWidgetManager.getAppWidgetIds(thisWidget);
-		
+
 		Log.w(LOG, "From Intent" + String.valueOf(allWidgetIds.length));
 		Log.w(LOG, "Direct" + String.valueOf(allWidgetIds2.length));
 
 		for (int widgetId : allWidgetIds) {
-			
-			
-						
-		//	 create some random data
-		Intent i = new Intent(this, SetRange.class);
-			
 
-		int message = i.getIntExtra("key", 100);
+			// create some random data
+			Intent i = new Intent();
 
-	    int number = (new Random().nextInt(message));
+			int message = i.getIntExtra("key", 100);
 
-			
-			
+			int number = (new Random().nextInt(message));
+
 			RemoteViews remoteViews = new RemoteViews(this
 					.getApplicationContext().getPackageName(),
 					R.layout.widget_layout);
-			
+
 			Log.w("WidgetExample", String.valueOf(number));
-			
+
 			// Set the text
-			remoteViews.setTextViewText(R.id.update,
-					"Random # " + String.valueOf(number));
-			
+			remoteViews.setTextViewText(R.id.update, "Random # "
+					+ String.valueOf(number));
+
 			// Register an onClickListener
 			Intent clickIntent = new Intent(this.getApplicationContext(),
 					WidgetRandom.class);
@@ -92,19 +92,25 @@ public class WidgetService extends Service {
 					PendingIntent.FLAG_UPDATE_CURRENT);
 			remoteViews.setOnClickPendingIntent(R.id.update, pendingIntent);
 			appWidgetManager.updateAppWidget(widgetId, remoteViews);
-						
+
 		}
 		stopSelf();
-		
+
 	}
 
+	private void startActivityResult(String requestcode2, String resultcode2,
+			String data2) {
+		// TODO Auto-generated method stub
+		return;
+
+	}
 
 	@Override
 	public IBinder onBind(Intent intent) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 		Log.i(TAG, "Entered onActivityResult()");
@@ -122,13 +128,13 @@ public class WidgetService extends Service {
 				// if (data == null) {
 				// return;
 				// }
-				// Instead of creating new intent, I used Intent data and it now works.
+				// Instead of creating new intent, I used Intent data and it now
+				// works.
 				// Getting data from edittext input from other activity
-				String message = data.getStringExtra("key");
+				message = data.getStringExtra("key");
 				mUserTextView.setText(message);
-				
+
 				System.out.println(mUserTextView);
-				
 
 			}
 
@@ -136,12 +142,8 @@ public class WidgetService extends Service {
 		onActivityResult(requestCode, resultCode, data);
 	}
 
-	
 	public static int getDefaultKey() {
 		return default_key;
 	}
 
-	
 }
-
-
