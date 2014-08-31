@@ -17,7 +17,9 @@ import android.widget.Toast;
  * Simple widget gives Random Number
  * 
  * @author Patrick Gorman
+ * 
  * @version Not Sure
+ * 
  * Not even sure what is going on here.
  */
 
