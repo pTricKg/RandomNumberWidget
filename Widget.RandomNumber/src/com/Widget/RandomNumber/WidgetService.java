@@ -18,7 +18,9 @@ import android.widget.TextView;
  * Simple widget gives Random Number
  * 
  * @author Patrick Gorman
+ * 
  * @version Not Sure
+ * um
  * Needs work!!
  */
 
