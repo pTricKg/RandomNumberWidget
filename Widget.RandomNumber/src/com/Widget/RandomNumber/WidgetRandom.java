@@ -13,8 +13,10 @@ import android.util.Log;
  * Simple widget gives Random Number
  * 
  * @author Patrick Gorman
+ * 
  * @version Not Sure
-* Needs work!!
+ * eh
+ * Needs work!!
  */
 
 
