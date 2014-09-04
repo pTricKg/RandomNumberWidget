@@ -14,7 +14,9 @@ import android.widget.RemoteViews;
  * Simple widget gives Random Number
  * 
  * @author Patrick Gorman
+ * 
  * @version Not Sure
+ * tee hee
 * Needs work!! need figure this out soon
  */
 
