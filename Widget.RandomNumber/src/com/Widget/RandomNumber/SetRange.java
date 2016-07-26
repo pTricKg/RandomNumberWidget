@@ -1,5 +1,8 @@
 package com.Widget.RandomNumber;
 
+
+
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,80 +18,56 @@ import android.widget.Toast;
  * 
  * @author Patrick Gorman
  * @version Not Sure
-* Not even sure what is going on here. This is
-* working.
+ * Not even sure what is going on here. This is
+ * working.
  */
 
 public class SetRange extends Activity {
-	
+
 	EditText setRange;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.range);
-	}
-	
-	public void Range (View v) {
-			// find EditText
-			setRange = (EditText) findViewById(R.id.editText);
-			
-			//Creating string for empty edit text check
-			String checkInput = setRange.getText().toString();
-			try {
-				// checking input
-				if (checkInput.trim().equals("")) {
-					Toast.makeText(getApplicationContext(),
-							"Please enter integer for random number generator", Toast.LENGTH_SHORT).show();
-				}
-				else {
-					Toast.makeText(getApplicationContext(),
-							("Your chose range from 1 to " + checkInput), Toast.LENGTH_SHORT).show();
-					// Get range from edit text then make string then parse into long
-					long mRange = Long.parseLong(setRange.getText().toString());
-//					// Create Intent
-//					Intent intent = new Intent(SetRange.this, WidgetService.class);
-//					intent.putExtra("range", mRange);
-//					startService(intent);
-					
-				}
-			}catch (NumberFormatException e) {
-				Toast.makeText(getApplicationContext(),
-						"Please enter only one integer", Toast.LENGTH_SHORT).show();
-			}
-			// Declare and setup "Enter" button
-			Button enterButton = (Button) findViewById(R.id.setR);
-			enterButton.setOnClickListener(new OnClickListener() {
 
-				// Call enterClicked() when pressed
+		// find EditText
+		setRange = (EditText) findViewById(R.id.editText);
+		
+		
 
-				public void onClick(View v) {
+		// Declare and setup "Enter" button
+		Button enterButton = (Button) findViewById(R.id.setR);
+		enterButton.setOnClickListener(new OnClickListener() {
 
-					sendToWidget();
+			// Call enterClicked() when pressed
 
-				}
-			});
-	}
-			
-			// Sets result to send back to calling Activity and finishes
+			public void onClick(View v) {
 
-			private void sendToWidget() {
+				sendToWidget();
 				
-				Toast toast = Toast.makeText(getApplicationContext(),
-						"This is sendToWidget", Toast.LENGTH_LONG);
-				toast.setGravity(Gravity.TOP, 25, 400);
-				toast.show();
 
-				Intent editIntent = new Intent();
-//				String name = "input";
-//				int value = setRange.getId();
-//				editIntent.putExtra(name, value);
-//				setResult(RESULT_OK, editIntent);
-				
-				editIntent.putExtra("key", setRange.getText().toString());
-//				setResult(RESULT_OK, editIntent);
-//				finish();
 			}
-			
+		});
+	}
+
+	public void sendToWidget() {
+
+		Toast toast = Toast.makeText(getApplicationContext(),
+				"This is sendToWidget", Toast.LENGTH_LONG);
+		toast.setGravity(Gravity.TOP, 25, 400);
+		toast.show();
+	}
+
+	public void setRange(Intent intent) {
+		// TODO Auto-generated method stub
+		// Get edit text then make string then parse
+		int input = Integer.parseInt(setRange.getText().toString());
+		// Create Intent
+		intent = new Intent(SetRange.this, WidgetService.class);
+		intent.putExtra("upper limit", input);
+		setRange(intent);
+		
+	}
 
 }

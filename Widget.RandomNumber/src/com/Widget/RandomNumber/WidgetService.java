@@ -22,7 +22,7 @@ import android.widget.RemoteViews;
 public class WidgetService extends Service {
 
 	private static final String LOG = "com.Widget.RandomNumber";
-	
+	int r;
 
 	@Override
 	public void onStart(Intent intent, int startId) {
@@ -51,6 +51,7 @@ public class WidgetService extends Service {
 			// need to get this from edittext
 			int number = (new Random().nextInt(100));
 
+			
 			RemoteViews remoteViews = new RemoteViews(this
 					.getApplicationContext().getPackageName(),
 					R.layout.widget_layout);
