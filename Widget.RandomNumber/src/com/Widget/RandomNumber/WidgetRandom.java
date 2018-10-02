@@ -1,22 +1,17 @@
 package com.Widget.RandomNumber;
 
-
-
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-
 /*
  * Simple widget gives Random Number
- * 
- * @author Patrick Gorman
+ *
+ * @author Patrick G
  * @version Not Sure
-* Needs work!!
  */
-
 
 public class WidgetRandom extends AppWidgetProvider {
 

@@ -10,25 +10,19 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.RemoteViews;
-
 /*
  * Simple widget gives Random Number
- * 
- * @author Patrick Gorman
+ *
+ * @author Patrick G
  * @version Not Sure
- * Needs work!!
  */
 
 public class WidgetService extends Service {
 
 	private static final String LOG = "com.Widget.RandomNumber";
-	int r;
 
 	@Override
-	public void onStart(Intent intent, int startId) {
-
-		Log.i(LOG, "Called");
-		
+	public int onStartCommand(Intent intent, int flags, int startId) {
 
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this
 				.getApplicationContext());
@@ -46,12 +40,10 @@ public class WidgetService extends Service {
 
 		for (int widgetId : allWidgetIds) {
 
-			
-			// Create some random data
-			// need to get this from edittext
-			int number = (new Random().nextInt(100));
+			// create some random
 
-			
+			int number = (new Random().nextInt(SetRange.i - SetRange.e + 1) + SetRange.e);
+
 			RemoteViews remoteViews = new RemoteViews(this
 					.getApplicationContext().getPackageName(),
 					R.layout.widget_layout);
@@ -60,7 +52,7 @@ public class WidgetService extends Service {
 
 			// Set the text
 			remoteViews.setTextViewText(R.id.update,
-					"Random # " + String.valueOf(number));
+					"# " + String.valueOf(number));
 
 			// Register an onClickListener
 			Intent clickIntent = new Intent(this.getApplicationContext(),
@@ -77,7 +69,9 @@ public class WidgetService extends Service {
 			appWidgetManager.updateAppWidget(widgetId, remoteViews);
 
 		}
+
 		stopSelf();
+		return START_NOT_STICKY;
 
 	}
 

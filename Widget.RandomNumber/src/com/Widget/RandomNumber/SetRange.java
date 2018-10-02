@@ -1,11 +1,8 @@
 package com.Widget.RandomNumber;
 
-
-
-
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,15 +13,16 @@ import android.widget.Toast;
 /*
  * Simple widget gives Random Number
  * 
- * @author Patrick Gorman
+ * @author Patrick G
  * @version Not Sure
- * Not even sure what is going on here. This is
- * working.
  */
 
 public class SetRange extends Activity {
 
-	EditText setRange;
+	public static EditText mSetRange;
+	public static EditText mSetRangeMin;
+	public static int i = 10;
+	public static int e = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,40 +30,49 @@ public class SetRange extends Activity {
 		setContentView(R.layout.range);
 
 		// find EditText
-		setRange = (EditText) findViewById(R.id.editText);
-		
-		
+		mSetRange = (EditText) findViewById(R.id.editText);
+		mSetRangeMin = (EditText) findViewById(R.id.editText2);
 
 		// Declare and setup "Enter" button
 		Button enterButton = (Button) findViewById(R.id.setR);
 		enterButton.setOnClickListener(new OnClickListener() {
-
 			// Call enterClicked() when pressed
 
 			public void onClick(View v) {
 
 				sendToWidget();
 			}
+
 		});
+
 	}
 
-	public void sendToWidget() {
+	public int sendToWidget() {
 
-		Toast toast = Toast.makeText(getApplicationContext(),
-				"This is sendToWidget", Toast.LENGTH_LONG);
-		toast.setGravity(Gravity.TOP, 25, 400);
-		toast.show();
+		// Convert EditText to string then to Integer
+		String value = mSetRange.getText().toString();
+		i = Integer.parseInt(value);
+
+		String value2 = mSetRangeMin.getText().toString();
+		e = Integer.parseInt(value2);
+
+		// check user input for min and max validity
+		if (e >= i) {
+			Toast toast2 = Toast.makeText(getApplicationContext(),
+					"Minimum value must be less than Maximum value. Set widget values to default.", Toast.LENGTH_LONG);
+			toast2.setGravity(Gravity.TOP, 25, 400);
+			toast2.show();
+			i = 10;
+			e = 0;
+			return i + e;
+		} else {
+			Toast toast = Toast.makeText(getApplicationContext(),
+					"This is being sent to widget" + ": " + e + ", " + i, Toast.LENGTH_LONG);
+			toast.setGravity(Gravity.TOP, 25, 400);
+			toast.show();
+			Log.d("info: ", mSetRange.getText().toString());
+			return i + e;
+		}
+
 	}
-
-	public void setRange(Intent intent) {
-		// TODO Auto-generated method stub
-		// Get edit text then make string then parse
-		int input = Integer.parseInt(setRange.getText().toString());
-		// Create Intent
-		intent = new Intent(SetRange.this, WidgetService.class);
-		intent.putExtra("upper limit", input);
-		setRange(intent);
-		
-	}
-
 }

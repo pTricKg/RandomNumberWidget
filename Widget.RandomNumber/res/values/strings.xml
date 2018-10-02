@@ -6,6 +6,6 @@
     <string name="number">Number</string>
     <string name="input">Your range please!</string>
     <string name="title_range">Random Range!</string>
-    <string name="range">Please set your range</string>
+    <string name="range">Click to set range.</string>
 
 </resources>
