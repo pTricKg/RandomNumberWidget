@@ -41,6 +41,8 @@ public class SetRange extends Activity {
 			public void onClick(View v) {
 
 				sendToWidget();
+				
+
 			}
 
 		});
